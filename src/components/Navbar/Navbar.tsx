@@ -1,17 +1,24 @@
 // components/Navbar.js
 
 import { Nav, UnList, Link } from "./styles";
+import { ReactNode } from "react";
 
-const Navbar = () => {
+interface Props {
+  router: {
+    path: string;
+    name: string;
+  }[];
+}
+
+const Navbar = ({ router }: Props) => {
   return (
     <Nav>
       <UnList className="container">
-        <li>
-          <Link href="/">Login</Link>
-        </li>
-        <li>
-          <Link href="/register">Register</Link>
-        </li>
+        {router.map((route, index) => (
+          <li key={index}>
+            <Link href={route.path}>{route.name}</Link>
+          </li>
+        ))}
       </UnList>
     </Nav>
   );
