@@ -24,7 +24,7 @@ const Login = () => {
   const onSubmit = (data: FieldValues) => console.log(data);
   return (
     <Wrapper>
-      <Logo></Logo>
+      <Logo />
       <Title>LOGIN</Title>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Input {...register("username")} type="text" placeholder="Username" />
