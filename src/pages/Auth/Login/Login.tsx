@@ -2,6 +2,7 @@ import { Wrapper, Logo, Title, Form, Input, Button } from "../styles";
 import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { TextField } from "@mui/material";
 
 const schema = z.object({
   username: z
@@ -27,14 +28,18 @@ const Login = () => {
       <Logo />
       <Title>LOGIN</Title>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Input {...register("username")} type="text" placeholder="Username" />
-        {errors.username && (
-          <p className="text-danger">{errors.username.message}</p>
-        )}{" "}
+        <Input
+          error={!!errors.username}
+          {...register("username")}
+          id="outlined-error-helper-text"
+          label={errors.username ? "Error" : "Username"}
+          defaultValue="Inserisci la tua Username"
+          helperText={errors?.username?.message}
+        />
         <Input
           {...register("password")}
           type="password"
-          placeholder="Password"
+          label={errors.username ? "Error" : "Password"}
         />
         {errors.password && (
           <p className="text-danger">{errors.password.message}</p>

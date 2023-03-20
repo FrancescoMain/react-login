@@ -4,6 +4,7 @@ export interface  Route{
     path: string,
     element: ReactNode,
     name: string,
+    visible: boolean;
 
 }
 

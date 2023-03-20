@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import { TextField } from '@mui/material';
 
 export const Wrapper = styled.div`
 background-color: #bbc5ce;
@@ -33,12 +33,10 @@ align-items: center;
 flex-direction: column`
 ;
 
-export const Input = styled.input`
- height: 30px;
- width: 300px;
- margin-bottom:20px;
- padding: 10px;
- 
+export const Input = styled(TextField)`
+width: 70%;
+bottom: 20px
+
 `;
 
 export const Button = styled.button`
