@@ -13,6 +13,7 @@ const schema = z
       .email({ message: "Inserisci un email valida" })
       .min(5, { message: "L'email deve contenere almeno 5 caratteri" }),
     password: z.string().regex(/^(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$/, {
+      //La password deve essere almeno 8 caratteri, contenere almeno un Uppercase, un Lowercase, un carattere speciale ed un numero
       message:
         "La password deve contenere almeno un numero e un carattere speciale",
     }),
