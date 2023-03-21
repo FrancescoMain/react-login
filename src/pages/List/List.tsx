@@ -6,7 +6,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Wrapper } from "../../App.styles";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import { TextField } from "@mui/material";
 import { Form } from "./style";
 import Button from "@mui/material/Button";
