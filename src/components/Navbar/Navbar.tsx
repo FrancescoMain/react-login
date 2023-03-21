@@ -2,6 +2,7 @@
 
 import { Nav, UnList, Link } from "./styles";
 import { Props } from "./type";
+import Button from "@mui/material/Button";
 
 const Navbar = ({ router }: Props) => {
   return (
@@ -11,7 +12,9 @@ const Navbar = ({ router }: Props) => {
           (route, index) =>
             route.visible && (
               <li key={index}>
-                <Link href={route.path}>{route.name}</Link>
+                <Button href={route.path} variant="contained">
+                  {route.name}
+                </Button>
               </li>
             )
         )}
