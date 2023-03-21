@@ -13,7 +13,7 @@ import Button from "@mui/material/Button";
 import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
+import { Search } from "./style";
 //ZOD VALIDATION
 //Schema
 const schema = z.object({
@@ -82,8 +82,28 @@ export default function DenseTable() {
       },
     ]);
 
+  //text SEARCHBAR hook
+  const [text, setText] = useState("");
+
+  const handleOnClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+    //setFindRow([...rows]);
+    // if (e.target.value) {
+    //   setFindRow(rows?.filter((row) => row?.name.toLowerCase().includes(text)));
+    //   console.log(e.target.value);
+    // }
+  };
+
   return (
     <Wrapper>
+      {/* SEARCHBAR */}
+      <Search
+        onChange={handleOnClick}
+        id="outlined-basic"
+        label="Search"
+        variant="outlined"
+        value={text}
+      />
       {/* TABLE */}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
@@ -98,23 +118,25 @@ export default function DenseTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row, index) => (
-              <TableRow
-                key={row.name}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
-                <TableCell onClick={() => handleClick(index)} align="right">
-                  X
-                </TableCell>
-              </TableRow>
-            ))}
+            {rows
+              ?.filter((row) => row?.name.toLowerCase().includes(text))
+              .map((row, index) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="right">{row.calories}</TableCell>
+                  <TableCell align="right">{row.fat}</TableCell>
+                  <TableCell align="right">{row.carbs}</TableCell>
+                  <TableCell align="right">{row.protein}</TableCell>
+                  <TableCell onClick={() => handleClick(index)} align="right">
+                    X
+                  </TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>
