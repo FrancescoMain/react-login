@@ -1,4 +1,6 @@
-import { Wrapper, Logo, Title, Form, Input, Button } from "../styles";
+import { Logo, Title, Form, Input, Button } from "../styles";
+import { Wrapper } from "../../../App.styles";
+
 import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
