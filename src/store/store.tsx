@@ -3,6 +3,7 @@ import Login from "../pages/Auth/Login/Login";
 import Register from "../pages/Auth/Register/Register";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Item from "../pages/Item/Item";
+import List from "../pages/List/List";
 import { Route } from "./type";
 
 export const router: Route[] = [
@@ -29,6 +30,12 @@ export const router: Route[] = [
     element: <Item />,
     name: "Item",
     visible: false,
+  },
+  {
+    path: "/list",
+    element: <List />,
+    name: "List",
+    visible: true,
   },
 ];
 
