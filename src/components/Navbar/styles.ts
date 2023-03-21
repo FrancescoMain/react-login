@@ -5,7 +5,11 @@ width: 90%;
 background-color: #bbc5ce;
 margin: 0 auto;
 height: 80px;
-border-radius: 20px
+border-radius: 20px;
+box-shadow: 0 8px 40px -12px rgba(0,0,0,0.3);
+&:hover {
+  box-shadow: 0 16px 70px -12.125px rgba(0,0,0,0.3);}
+
 
 `;
 
