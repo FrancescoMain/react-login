@@ -1,15 +1,6 @@
 import styled from 'styled-components'
 import { TextField } from '@mui/material';
 
-export const Wrapper = styled.div`
-background-color: #bbc5ce;
-min-height: 400px;
-width: 600px;
-border-radius: 20px;
-padding:20px
-`;
-
-
 export const Logo = styled.div`
 background-color: white;
 border: 2px black solid;
